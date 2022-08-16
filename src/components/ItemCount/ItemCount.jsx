@@ -26,7 +26,7 @@ const ItemCount = (props) => {
     let btn_sumar;
 
     (counter == 1) ? btn_restar = {opacity: 0.5} : btn_restar = {opacity: 1};
-    (counter == 10) ? btn_sumar = {opacity: 0.5} : btn_sumar = {opacity: 1};
+    (counter == props.stock) ? btn_sumar = {opacity: 0.5} : btn_sumar = {opacity: 1};
 
   return (
     <div className='divContador'>

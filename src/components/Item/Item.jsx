@@ -9,9 +9,6 @@ const Item = ({element}) => {
         <Card.Img className='imagen' src={element.sprites.front_default} />
         <Card.Body>
           <Card.Title>{element.name}</Card.Title>
-          <Card.Text>
-            Precio: ${element.weight}
-          </Card.Text>
               <Link to={`/pokemon/${element.id}`}>Ver detalle</Link>
       </Card.Body>
     </Card>

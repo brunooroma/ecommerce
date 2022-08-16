@@ -1,20 +1,33 @@
 import './ItemDetail.css';
 import {Card} from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
+import {useState, useEffect} from 'react';
+import data from'../Data/data';
 
-const ItemDetail = ({info, id}) => {
+const ItemDetail = ({id}) => {
     
+    let [item, setItem] = useState({});
+
+    const getDetalle = () => {
+        let detalle = data.find((e) => e.id == id)
+        setItem(detalle)
+    }
+
+    useEffect(() => {
+        getDetalle();
+    },[])
+
     return(
         <div className = 'contenedorCard'>
             <Card style={{ width: '10rem' }} className='card'>
-                <Card.Img className='imagen' src={info[id-1].sprites.front_default} />
+                <Card.Img className='imagen' src={item.img} />
                 <Card.Body>
-                    <Card.Title>{info[id-1].name}</Card.Title>
+                    <Card.Title>{item.name}</Card.Title>
                     <Card.Text>
-                        Precio: ${info[id-1].weight}
+                        Precio: ${item.precio}
                     </Card.Text>
                 </Card.Body>
-                <ItemCount initial={1} stock={10}/>
+                <ItemCount initial={1} stock={item.stock}/>
             </Card>
         </div>
     )
