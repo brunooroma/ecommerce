@@ -1,13 +1,20 @@
 import './Item.css';
+import {Link} from 'react-router-dom';
+import {Card} from 'react-bootstrap';
 
 const Item = ({element}) => {
-  console.log(element)
   return (
     <div>
-        <p>Numero: {element.id}</p>
-        <h2>{element.name}</h2>
-        <img src={element.sprites.front_default} alt={`Imagen de ${element.name}`} />
-        <p>Precio: ${element.weight}</p>
+      <Card style={{ width: '10rem' }} className='card'>
+        <Card.Img className='imagen' src={element.sprites.front_default} />
+        <Card.Body>
+          <Card.Title>{element.name}</Card.Title>
+          <Card.Text>
+            Precio: ${element.weight}
+          </Card.Text>
+              <Link to={`/pokemon/${element.id}`}>Ver detalle</Link>
+      </Card.Body>
+    </Card>
     </div>
   )
 }

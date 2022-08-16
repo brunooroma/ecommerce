@@ -1,0 +1,13 @@
+.divNavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.divCategorias {
+    font-size: 1.5rem;
+}
+
+.divCarrito {
+    margin-top: 0.5rem;
+}

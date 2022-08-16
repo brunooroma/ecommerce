@@ -1,0 +1,20 @@
+.divContador {
+    margin: 0 1rem 1rem 1rem
+}
+
+.divBoton {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+.divContador p {
+    margin-top: 1.5rem;
+}
+
+.botonContador {
+    margin: 1rem 0 1rem 0;
+}

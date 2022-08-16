@@ -2,8 +2,6 @@ import './ItemListContainer.css';
 import {useState, useEffect} from 'react';
 import ItemList from '../ItemList/ItemList';
 
-
-
 const ItemListContainer = ({greeting}) => {
 
     const [list, setList] = useState([]);
