@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ItemListContainer greeting={'Pokemones 1º Generacion'} />} />
           <Route path='/pokemon/:id' element={<ItemDetailContainer greeting={'Detalle Pokemon'}/>} />
-          <Route path='/categoria/:idCategory' element={<ItemListContainer greeting={'Pokemones de tipo:'} />} />
+          <Route path='/categoria/:category' element={<ItemListContainer greeting={'Pokemones de tipo:'} />} />
           <Route path='*' element={<h1>No hay nada para ver... Circule</h1>} />
         </Routes>
       </BrowserRouter>

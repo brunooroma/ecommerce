@@ -1,8 +1,21 @@
 import './ItemListContainer.css';
 import {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom'
 import ItemList from '../ItemList/ItemList';
+import data from '../Data/data';
+import Tarjeta from '../Card/Card';
 
 const ItemListContainer = ({greeting}) => {
+
+    let {category} = useParams();
+    console.log(category)
+
+    let [type, setType] = useState([]);
+
+    const getTipo = () => {
+        let detalleTipo = data.filter((e) => e.type === category)
+            setType(detalleTipo)      
+    }
 
     const [list, setList] = useState([]);
     const [error, setError] = useState(null);
@@ -31,7 +44,8 @@ const ItemListContainer = ({greeting}) => {
 
     useEffect(() => {
         getInfo()
-    }, []);
+        getTipo()
+    },[]);
 
     if (error) return <p>{error}</p>
 
@@ -40,7 +54,7 @@ const ItemListContainer = ({greeting}) => {
             <div>
                 <h1>{greeting}</h1>
             </div>
-            {list.length === 0 ? <p>Cargando...</p> : <ItemList info={list}/>}
+            {(category == undefined) ? <ItemList info={list} /> : <Tarjeta info={type} /> }
         </div>
     )
 }
