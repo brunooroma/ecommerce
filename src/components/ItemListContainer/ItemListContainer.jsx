@@ -8,22 +8,19 @@ import Tarjeta from '../Card/Card';
 const ItemListContainer = ({greeting}) => {
 
     let {category} = useParams();
-    console.log(category)
 
-    let [listFilter, setListFilter] = useState([]);
+    const [listFilter, setListFilter] = useState([]);
+    const [list, setList] = useState([]);
+    const [error, setError] = useState(null);
 
     const getTipo = () => {
         let listaPokemonTipo = data.filter((e) => e.type === category)
-        console.log(listaPokemonTipo)
         if(listaPokemonTipo.length > 0){
             setListFilter(listaPokemonTipo)
         }else{
             setListFilter(null)
-        }  
+        }
     }
-
-    const [list, setList] = useState([]);
-    const [error, setError] = useState(null);
 
     const getInfo = async () => {
         try{
@@ -48,10 +45,12 @@ const ItemListContainer = ({greeting}) => {
     }
 
     useEffect(() => {
+        getInfo()
+    }, [])
+
+    useEffect(() => {
         if(category) {
             getTipo()
-        }else{
-            getInfo()
         }
     },[category]);
 

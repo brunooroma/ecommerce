@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {Card} from 'react-bootstrap';
 
 const Tarjeta = ({info}) => {
-    console.log(info)
   return (
     <div>
         {info && info.length > 0 && info.map((e) => {
