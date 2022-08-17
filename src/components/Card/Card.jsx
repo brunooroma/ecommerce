@@ -6,7 +6,7 @@ const Tarjeta = ({info}) => {
     console.log(info)
   return (
     <div>
-        {info.map((e) => {
+        {info && info.length > 0 && info.map((e) => {
             return(
                 <Card key={e.id} style={{ width: '10rem' }} className='card'>
                     <Card.Img className='imagen' src={e.img} />
@@ -18,6 +18,7 @@ const Tarjeta = ({info}) => {
             )
         })
         }
+        {!info && <h1>No hay Pokemon con ese tipo</h1>}
     </div>
   )
 }

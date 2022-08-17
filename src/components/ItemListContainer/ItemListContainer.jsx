@@ -10,11 +10,16 @@ const ItemListContainer = ({greeting}) => {
     let {category} = useParams();
     console.log(category)
 
-    let [type, setType] = useState([]);
+    let [listFilter, setListFilter] = useState([]);
 
     const getTipo = () => {
-        let detalleTipo = data.filter((e) => e.type === category)
-            setType(detalleTipo)      
+        let listaPokemonTipo = data.filter((e) => e.type === category)
+        console.log(listaPokemonTipo)
+        if(listaPokemonTipo.length > 0){
+            setListFilter(listaPokemonTipo)
+        }else{
+            setListFilter(null)
+        }  
     }
 
     const [list, setList] = useState([]);
@@ -43,18 +48,21 @@ const ItemListContainer = ({greeting}) => {
     }
 
     useEffect(() => {
-        getInfo()
-        getTipo()
-    },[]);
+        if(category) {
+            getTipo()
+        }else{
+            getInfo()
+        }
+    },[category]);
 
     if (error) return <p>{error}</p>
 
     return(
         <div>
             <div>
-                <h1>{greeting}</h1>
+                <h1>{`${greeting} ${category ? category : ''}`}</h1>
             </div>
-            {(category == undefined) ? <ItemList info={list} /> : <Tarjeta info={type} /> }
+            {!category ? <ItemList info={list} /> : <Tarjeta info={listFilter} /> }
         </div>
     )
 }

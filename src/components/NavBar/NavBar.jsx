@@ -5,7 +5,7 @@ import './NavBar.css';
 
 const NavBar = () => {
   
-    const categorias = ['Planta','Fuego','Agua','Otros'];
+    const categorias = ['Planta','Fuego','Agua','Volador','Bicho','Normal'];
 
     let styleLinks = {
       textDecoration: 'none',
@@ -19,7 +19,7 @@ const NavBar = () => {
       </div>
       <div className='divCategorias'>
         <Stack direction="horizontal" gap={5}>
-        {categorias.map((cat) => <NavLink style={styleLinks} key={cat} to={`/categoria/${cat}`}>{cat}</NavLink>)}
+        {categorias.map((cat) => <NavLink style={styleLinks} key={cat} to={`/categoria/${cat.toLowerCase()}`}>{cat}</NavLink>)}
         </Stack>
       </div>
       <div className='divCarrito'>
