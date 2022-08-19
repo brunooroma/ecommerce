@@ -36,7 +36,7 @@ const ItemCount = (props) => {
             <Button variant='primary' className='botonContador' style={btn_sumar} onClick={countIncrement}>+</Button>
         </div>
         <div>
-            <Button variant='primary' className='botonContador' onClick={addCart}>Agregar al Carrito</Button>
+            <Button variant='primary' className='botonContador' onClick={() => props.onAdd(counter)}>Agregar al Carrito</Button>
         </div>
     </div>
   )

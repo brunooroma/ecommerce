@@ -3,9 +3,11 @@ import {Card} from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import {useState, useEffect} from 'react';
 import data from'../Data/data';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({id}) => {
-    
+
+    const [estado, setEstado] = useState(0)
     let [item, setItem] = useState({});
 
     const getDetalle = () => {
@@ -17,6 +19,15 @@ const ItemDetail = ({id}) => {
         getDetalle();
     },[])
 
+    const handleAdd = (counter) => {
+        if(counter === 1) {
+            alert(`Se ha agregado al carrito ${counter} unidad`)
+        }else{ 
+            alert(`Se han agregado al carrito ${counter} unidades`);
+        }
+        setEstado(counter)
+    }
+
     return(
         <div className = 'contenedorCard'>
             <Card style={{ width: '10rem' }} className='card'>
@@ -27,8 +38,11 @@ const ItemDetail = ({id}) => {
                         Precio: ${item.precio}
                     </Card.Text>
                 </Card.Body>
-                <ItemCount initial={1} stock={item.stock}/>
-            </Card>
+                { estado === 0 ?
+                <ItemCount initial={1} stock={item.stock} onAdd={handleAdd}/>
+                : <Link to={'/cart'}>Ir al carrito</Link>
+            }
+                </Card>
         </div>
     )
 }
