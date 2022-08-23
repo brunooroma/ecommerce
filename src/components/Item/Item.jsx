@@ -9,7 +9,7 @@ const Item = ({element}) => {
         <Card.Img className='imagen' src={element.sprites.front_default} />
         <Card.Body>
           <Card.Title>{element.name}</Card.Title>
-              <Link to={`/pokemon/${element.id}`}>Ver detalle</Link>
+              <Link to={`/producto/${element.id}`}>Ver detalle</Link>
       </Card.Body>
     </Card>
     </div>

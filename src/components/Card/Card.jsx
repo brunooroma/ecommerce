@@ -11,7 +11,7 @@ const Tarjeta = ({info}) => {
                     <Card.Img className='imagen' src={e.img} />
                     <Card.Body>
                     <Card.Title>{e.name}</Card.Title>
-                        <Link to={`/pokemon/${e.id}`}>Ver detalle</Link>
+                        <Link to={`/producto/${e.id}`}>Ver detalle</Link>
                 </Card.Body>
                 </Card>
             )
