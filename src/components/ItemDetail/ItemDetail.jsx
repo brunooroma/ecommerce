@@ -1,31 +1,20 @@
 import './ItemDetail.css';
 import {Card} from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
-import {useState, useEffect, useContext} from 'react';
-import data from'../Data/data';
+import {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../store/CartContext';
 import {Button} from 'react-bootstrap';
 
-const ItemDetail = ({id}) => {
+const ItemDetail = ({item}) => {
 
-    const { cart, addToCart, removeItem, viewCart, clearCart } = useContext(cartContext)
+    const { addToCart, removeItem, viewCart, clearCart } = useContext(cartContext)
 
-    const [estado, setEstado] = useState(0)
-    let [item, setItem] = useState({});
-
-    const getDetalle = () => {
-        let detalle = data.find((e) => e.id == id)
-        setItem(detalle)
-    }
-
-    useEffect(() => {
-        getDetalle();
-    },[])
+    const [flag, setFlag] = useState(0)
 
     const handleAdd = (counter) => {
         addToCart(item, counter);
-        setEstado(counter)
+        setFlag(counter)
     }
 
     return(
@@ -38,7 +27,7 @@ const ItemDetail = ({id}) => {
                         Precio: ${item.precio}
                     </Card.Text>
                 </Card.Body>
-                { estado === 0 ?
+                { flag === 0 ?
                 <ItemCount initial={1} stock={item.stock} onAdd={handleAdd} />
                 : <Link to={'/cart'}>Ir al carrito</Link>
             }
