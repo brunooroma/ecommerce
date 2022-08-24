@@ -29,12 +29,9 @@ const ItemDetail = ({item}) => {
                 </Card.Body>
                 { flag === 0 ?
                 <ItemCount initial={1} stock={item.stock} onAdd={handleAdd} />
-                : <Link to={'/cart'}>Ir al carrito</Link>
+                : <Link to={'/cart'}>Terminar Compra</Link>
             }
                 </Card>
-                <Button onClick={()=> viewCart()}>Ver</Button>
-                <Button onClick={()=> removeItem(item)}>Eliminar Producto</Button>
-                <Button onClick={()=> clearCart()}>Limpiar</Button>
         </div>
     )
 }
