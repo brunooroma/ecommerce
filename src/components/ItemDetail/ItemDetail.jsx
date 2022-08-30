@@ -3,12 +3,12 @@ import {Card} from 'react-bootstrap';
 import ItemCount from '../ItemCount/ItemCount';
 import {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
-import { cartContext } from '../store/CartContext';
+import { cartContext } from '../../store/CartContext';
 import {Button} from 'react-bootstrap';
 
 const ItemDetail = ({item}) => {
 
-    const { addToCart, removeItem, viewCart, clearCart } = useContext(cartContext)
+    const { addToCart } = useContext(cartContext)
 
     const [flag, setFlag] = useState(0)
 

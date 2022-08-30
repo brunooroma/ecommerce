@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-import {getFirestore} from 'firebase/firestore';
+import {getFirestore, collection, getDocs, getDoc, doc, query, where} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBSsTX5rtZPlsdbVuVLdBLITNH88OfBcco",
@@ -16,3 +16,13 @@ const app = initializeApp(firebaseConfig);
 const firestoreDB = getFirestore(app)
 
 export default firestoreDB
+
+export const getItemsFromDB = () => {
+  return new Promise((resolve) => {
+  const ecommerceCollection = collection(firestoreDB,'ecommerce')
+  getDocs(ecommerceCollection).then(snapshot => {
+    const docsData = snapshot.docs.map(doc => doc.data())
+    resolve(docsData)
+  })
+})
+}

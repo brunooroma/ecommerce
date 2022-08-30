@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus }  from "@fortawesome/free-solid-svg-icons";
 import {Link} from 'react-router-dom';
 import {useContext, useState, useEffect} from 'react';
-import {cartContext} from '../store/CartContext'
+import {cartContext} from '../../store/CartContext'
 
 const CartWidget = () => {
   const { cart } = useContext(cartContext);
