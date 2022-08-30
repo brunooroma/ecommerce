@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import data from'../Data/data';
 
+import { getItemById } from '../../services/firebase';
+
 
 const ItemDetailContainer = ({greeting}) => {
     const idURL = useParams().id;
@@ -16,7 +18,7 @@ const ItemDetailContainer = ({greeting}) => {
     }
 
     useEffect(() => {
-        getDetalle();
+        getItemById(idURL).then(response => setItem(...response));
     },[])
 
     return(

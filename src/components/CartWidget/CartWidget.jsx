@@ -13,7 +13,6 @@ const CartWidget = () => {
 
     }else {
       let nuevo = cart.map(e => e.quantity)
-      console.log(nuevo)
       let total = nuevo.reduce((a,b) => a+b)
       setQuantityCart(total)
     }

@@ -6,7 +6,7 @@ export const CustomCartContextProvider = ({children}) => {
     const [cart, setCart] = useState([]);
     
     const isInCart = (item) => {
-        return cart.some(itemCart => itemCart.id === item.id)
+        return cart.some(itemCart => itemCart.numero === item.numero)
     }
 
     const addToCart = (item, quantity) => {
@@ -35,7 +35,7 @@ export const CustomCartContextProvider = ({children}) => {
 
     const removeItem = (item) => {
         if(isInCart(item)){
-            let newCart = cart.filter(e => e.id !== item.id)
+            let newCart = cart.filter(e => e.numero !== item.numero)
             setCart(newCart)
         }
     }

@@ -7,7 +7,6 @@ import { cartContext } from '../../store/CartContext';
 import {Button} from 'react-bootstrap';
 
 const ItemDetail = ({item}) => {
-
     const { addToCart } = useContext(cartContext)
 
     const [flag, setFlag] = useState(0)

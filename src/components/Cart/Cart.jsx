@@ -21,9 +21,8 @@ const Cart = () => {
                                     <Link to={'/'}>Pagina Principal </Link>
                                 </div>
             : cart.map((e) => {
-                console.log(e)
                 return(
-                    <Card key={e.id} style={{ width: '10rem' }} className='card'>
+                    <Card key={e.numero} style={{ width: '10rem' }} className='card'>
                         <Card.Img className='imagen' src={e.img} />
                         <Card.Body>
                         <Card.Title>{e.name}</Card.Title>

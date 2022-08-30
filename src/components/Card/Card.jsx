@@ -7,11 +7,11 @@ const Tarjeta = ({info}) => {
     <div>
         {info && info.length > 0 && info.map((e) => {
             return(
-                <Card key={e.id} style={{ width: '10rem' }} className='card'>
+                <Card key={e.numero} style={{ width: '10rem' }} className='card'>
                     <Card.Img className='imagen' src={e.img} />
                     <Card.Body>
                     <Card.Title>{e.name}</Card.Title>
-                        <Link to={`/producto/${e.id}`}>Ver detalle</Link>
+                        <Link to={`/producto/${e.numero}`}>Ver detalle</Link>
                 </Card.Body>
                 </Card>
             )

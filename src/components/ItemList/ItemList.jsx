@@ -7,7 +7,7 @@ const ItemList = ({info}) => {
             {info.map((e) => {
                 return(
                 <Item
-                    key={e.id}
+                    key={e.numero}
                     element={e}
                 />
                 )

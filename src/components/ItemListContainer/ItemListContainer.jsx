@@ -5,6 +5,8 @@ import ItemList from '../ItemList/ItemList';
 import data from '../Data/data';
 import Tarjeta from '../Card/Card';
 
+import { getItemsFromDB, getItemFromDBbyCategory } from '../../services/firebase';
+
 const ItemListContainer = ({greeting}) => {
 
     let {category} = useParams();
@@ -45,12 +47,12 @@ const ItemListContainer = ({greeting}) => {
     }
 
     useEffect(() => {
-        getInfo()
+        getItemsFromDB().then(response => setList(response))
     }, [])
 
     useEffect(() => {
         if(category) {
-            getTipo()
+            getItemFromDBbyCategory(category).then((response) => setListFilter(response))
         }
     },[category]);
 

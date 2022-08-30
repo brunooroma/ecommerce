@@ -6,10 +6,10 @@ const Item = ({element}) => {
   return (
     <div>
       <Card style={{ width: '10rem' }} className='card'>
-        <Card.Img className='imagen' src={element.sprites.front_default} />
+        <Card.Img className='imagen' src={element.img} />
         <Card.Body>
           <Card.Title>{element.name}</Card.Title>
-              <Link to={`/producto/${element.id}`}>Ver detalle</Link>
+              <Link to={`/producto/${element.numero}`}>Ver detalle</Link>
       </Card.Body>
     </Card>
     </div>

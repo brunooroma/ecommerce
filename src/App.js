@@ -9,7 +9,6 @@ import Cart from './components/Cart/Cart';
 import firestoreDB from './services/firebase'
 
 function App() {
-  console.log(firestoreDB)
   return (
     <div className="App">
       <BrowserRouter>

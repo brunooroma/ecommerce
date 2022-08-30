@@ -19,10 +19,39 @@ export default firestoreDB
 
 export const getItemsFromDB = () => {
   return new Promise((resolve) => {
-  const ecommerceCollection = collection(firestoreDB,'ecommerce')
-  getDocs(ecommerceCollection).then(snapshot => {
-    const docsData = snapshot.docs.map(doc => doc.data())
-    resolve(docsData)
+    const ecommerceCollection = collection(firestoreDB,'ecommerce')
+    getDocs(ecommerceCollection).then(snapshot => {
+      const docsData = snapshot.docs.map(doc => {
+        return(
+          {...doc.data(),id: doc.id}
+          )
+        })
+      docsData.sort((a,b)=>a.numero-b.numero)
+      resolve(docsData)
+      })
   })
-})
+}
+
+export const getItemById = (idURL) => {
+  return new Promise((resolve) => {
+    const ecommerceCollection = collection(firestoreDB,'ecommerce')
+    const q = query(ecommerceCollection, where('numero', '==', idURL))
+    getDocs(q).then(snapshot => {
+      const docsData = snapshot.docs.map(doc => doc.data())
+      resolve(docsData)
+      }
+    ) 
+  })    
+}
+
+export const getItemFromDBbyCategory = (category) => {
+  return new Promise((resolve) => {
+    const ecommerceCollection = collection(firestoreDB,'ecommerce')
+    const q = query(ecommerceCollection, where('type', '==', category))
+    getDocs(q).then(snapshot => {
+      const docsData = snapshot.docs.map(doc => doc.data())
+      docsData.sort((a,b)=>a.numero-b.numero)
+      resolve(docsData)
+    })
+  })
 }
