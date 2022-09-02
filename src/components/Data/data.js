@@ -1,6 +1,6 @@
 const pokemones = [
       {
-        "numero": 1,
+        "numero": '1',
         "name": "bulbasaur",
         "type": "planta",
         "stock": 20,
@@ -8,7 +8,7 @@ const pokemones = [
         "precio": 280 
       },
       {
-        "numero": 2,
+        "numero": '2',
         "name": "ivysaur",
         "type": "planta",
         "stock": 12,
@@ -16,7 +16,7 @@ const pokemones = [
         "precio": 520 
       },
       {
-        "numero": 3,
+        "numero": '3',
         "name": "venusaur",
         "type": "planta",
         "stock": 4,
@@ -24,7 +24,7 @@ const pokemones = [
         "precio": 1230
       },
       {
-        "numero": 4,
+        "numero": '4',
         "name": "charmander",
         "type": "fuego",
         "stock": 18,
@@ -32,7 +32,7 @@ const pokemones = [
         "precio":300
       },
       {
-        "numero": 5,
+        "numero": '5',
         "name": "charmeleon",
         "type": "fuego",
         "stock": 8,
@@ -40,7 +40,7 @@ const pokemones = [
         "precio": 650
       },
       {
-        "numero": 6,
+        "numero": '6',
         "name": "charizard",
         "type": "fuego",
         "stock": 2,
@@ -48,7 +48,7 @@ const pokemones = [
         "precio": 1400
       },
       {
-        "numero": 7,
+        "numero": '7',
         "name": "squirtle",
         "type": "agua",
         "stock": 16,
@@ -56,7 +56,7 @@ const pokemones = [
         "precio": 295
       },
       {
-        "numero": 8,
+        "numero": '8',
         "name": "wartortle",
         "type": "agua",
         "stock": 10,
@@ -64,7 +64,7 @@ const pokemones = [
         "precio": 700
       },
       {
-        "numero": 9,
+        "numero": '9',
         "name": "blastoise",
         "type": "agua",
         "stock": 5,
@@ -72,7 +72,7 @@ const pokemones = [
         "precio": 1300
       },
       {
-        "numero": 10,
+        "numero": '10',
         "name": "caterpie",
         "type": "bicho",
         "stock": 100,
@@ -80,7 +80,7 @@ const pokemones = [
         "precio": 100
       },
       {
-        "numero": 11,
+        "numero": '11',
         "name": "metapod",
         "type": "bicho",
         "stock": 50,
@@ -88,7 +88,7 @@ const pokemones = [
         "precio": 120
       },
       {
-        "numero": 12,
+        "numero": '12',
         "name": "butterfree",
         "type": "bicho",
         "stock": 30,
@@ -96,7 +96,7 @@ const pokemones = [
         "precio": 500
       },
       {
-        "numero": 13,
+        "numero": '13',
         "name": "weedle",
         "type": "bicho",
         "stock": 90,
@@ -104,7 +104,7 @@ const pokemones = [
         "precio": 130
       },
       {
-        "numero": 14,
+        "numero": '14',
         "name": "kakuna",
         "type": "bicho",
         "stock": 40,
@@ -112,7 +112,7 @@ const pokemones = [
         "precio": 180
       },
       {
-        "numero": 15,
+        "numero": '15',
         "name": "beedrill",
         "type": "bicho",
         "stock": 26,
@@ -120,7 +120,7 @@ const pokemones = [
         "precio": 480
       },
       {
-        "numero": 16,
+        "numero": '16',
         "name": "pidgey",
         "type": "volador",
         "stock": 200,
@@ -128,7 +128,7 @@ const pokemones = [
         "precio": 200
       },
       {
-        "numero": 17,
+        "numero": '17',
         "name": "pidgeotto",
         "type": "volador",
         "stock": 100,
@@ -136,7 +136,7 @@ const pokemones = [
         "precio": 450
       },
       {
-        "numero": 18,
+        "numero": '18',
         "name": "pidgeot",
         "type": "volador",
         "stock": 30,
@@ -144,7 +144,7 @@ const pokemones = [
         "precio": 1000
       },
       {
-        "numero": 19,
+        "numero": '19',
         "name": "rattata",
         "type": "normal",
         "stock": 500,
@@ -152,7 +152,7 @@ const pokemones = [
         "precio": 160
       },
       {
-        "numero": 20,
+        "numero": '20',
         "name": "raticate",
         "type": "normal",
         "stock": 100,

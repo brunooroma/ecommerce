@@ -6,12 +6,13 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import { CustomCartContextProvider } from './store/CartContext';
 import Cart from './components/Cart/Cart';
 
-import firestoreDB from './services/firebase'
+/* import { saveProductsToFirebase } from './services/firebase'; */
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+{/*       <button onClick={() => saveProductsToFirebase()}>Enviar Datos</button> */}
       <CustomCartContextProvider>
       <NavBar />
         <Routes>

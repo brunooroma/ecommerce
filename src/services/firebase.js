@@ -1,7 +1,8 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 
-import {getFirestore, collection, getDocs, getDoc, doc, query, where} from 'firebase/firestore';
+import data from '../components/Data/data'
+
+import {getFirestore, collection, getDocs, query, where, addDoc} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBSsTX5rtZPlsdbVuVLdBLITNH88OfBcco",
@@ -54,4 +55,12 @@ export const getItemFromDBbyCategory = (category) => {
       resolve(docsData)
     })
   })
+}
+
+export const saveProductsToFirebase = async () => {
+  const ecommerceCollection = collection(firestoreDB, 'ecommerce')
+  for(let item of data){
+    const docref = await addDoc(ecommerceCollection,item)
+    console.log(docref.id)
+  }
 }
