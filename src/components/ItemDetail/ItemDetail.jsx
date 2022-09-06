@@ -4,7 +4,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { cartContext } from '../../store/CartContext';
-import {Button} from 'react-bootstrap';
+/* import {Button} from 'react-bootstrap'; */
 
 const ItemDetail = ({item}) => {
     const { addToCart } = useContext(cartContext)

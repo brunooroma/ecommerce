@@ -1,4 +1,4 @@
-import './Card.css';
+import './Tarjeta.css';
 import {Link} from 'react-router-dom';
 import {Card} from 'react-bootstrap';
 

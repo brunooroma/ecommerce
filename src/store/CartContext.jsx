@@ -9,7 +9,7 @@ export const CustomCartContextProvider = ({children}) => {
     const [orderId, setOrderId] = useState(false);
     
     const isInCart = (item) => {
-        return cart.some(itemCart => itemCart.numero === item.numero)
+        return cart.some(itemCart => itemCart.numero == item.numero)
     }
 
     const addToCart = (item, quantity) => {
@@ -32,7 +32,7 @@ export const CustomCartContextProvider = ({children}) => {
         const collectionRef = collection(firestoreDB,'orders')
         const docRef = await addDoc(collectionRef,ordenDeCompra)
         setOrderId(docRef.id)
-        setCart([])
+        clearCart()
     }
 
     const viewCart = () => {

@@ -2,8 +2,8 @@ import './ItemListContainer.css';
 import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom'
 import ItemList from '../ItemList/ItemList';
-import data from '../Data/data';
-import Tarjeta from '../Card/Card';
+/* import data from '../Data/data'; */
+import Tarjeta from '../Tarjeta/Tarjeta';
 
 import { getItemsFromDB, getItemFromDBbyCategory } from '../../services/firebase';
 
@@ -15,15 +15,15 @@ const ItemListContainer = ({greeting}) => {
     const [list, setList] = useState([]);
     const [error, setError] = useState(null);
 
-    const getTipo = () => {
+/*     const getTipo = () => {
         let listaPokemonTipo = data.filter((e) => e.type === category)
         if(listaPokemonTipo.length > 0){
             setListFilter(listaPokemonTipo)
         }else{
             setListFilter(null)
         }
-    }
-
+    } */
+/* 
     const getInfo = async () => {
         try{
             const result = await fetch('https://pokeapi.co/api/v2/pokemon')
@@ -44,7 +44,7 @@ const ItemListContainer = ({greeting}) => {
         } catch(err){
             setError('Error de API');
         }
-    }
+    } */
 
     useEffect(() => {
         getItemsFromDB().then(response => setList(response))

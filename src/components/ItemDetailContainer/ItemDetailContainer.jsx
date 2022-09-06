@@ -2,7 +2,7 @@ import './ItemDetailContainer.css';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import data from'../Data/data';
+/* import data from'../Data/data'; */
 
 import { getItemById } from '../../services/firebase';
 
@@ -12,10 +12,10 @@ const ItemDetailContainer = ({greeting}) => {
 
     let [item, setItem] = useState({});
 
-    const getDetalle = () => {
+/*     const getDetalle = () => {
         let detalle = data.find((e) => e.id == idURL)
         setItem(detalle)
-    }
+    } */
 
     useEffect(() => {
         getItemById(idURL).then(response => setItem(...response));

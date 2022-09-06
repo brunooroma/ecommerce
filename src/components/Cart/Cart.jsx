@@ -4,6 +4,8 @@ import {cartContext} from '../../store/CartContext';
 import {Card} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash }  from "@fortawesome/free-solid-svg-icons";
 
 const Cart = () => {
 
@@ -57,7 +59,7 @@ const Cart = () => {
                                 <Card.Title>{e.name}</Card.Title>
                                 <Card.Text>Unidades: {e.quantity}</Card.Text>
                                 <Card.Text>Total: ${totalPrice(e.quantity,e.precio)}</Card.Text>
-                                <Button onClick={()=> removeItem(e)}>Eliminar Producto</Button>
+                                <Button onClick={()=> removeItem(e)}><FontAwesomeIcon icon={ faTrash } style={{color: 'white', fontSize: '1rem'}} /></Button>
 
                             </Card.Body>
                             </Card>        
@@ -67,8 +69,12 @@ const Cart = () => {
                     <p>Total Compra: ${totalOrden}</p>
                 </div>
             }
-                {cart.length === 0 ? <></> : <Button onClick={()=> saveProductsToFirebase(ordenDeCompra)}>Confirmar Compra</Button>}
-                {cart.length === 0 ? <></> : <Button onClick={()=> clearCart()}>Limpiar</Button>}
+                {cart.length === 0 ? <></> 
+                : <div>
+                    <Button onClick={()=> saveProductsToFirebase(ordenDeCompra)}>Confirmar Compra</Button>
+                    <Button onClick={()=> clearCart()}>Limpiar</Button>
+                 </div>
+                }
         </div>
     )
 }

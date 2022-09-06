@@ -18,9 +18,9 @@ const ItemCount = (props) => {
     }
     }
 
-    const addCart = () => {
+/*     const addCart = () => {
         (counter === props.initial) ? alert(`Se ha agregado al carrito ${counter} unidad`) : alert(`Se han agregado al carrito ${counter} unidades`);
-    }
+    } */
 
     let btn_restar;
     let btn_sumar;
