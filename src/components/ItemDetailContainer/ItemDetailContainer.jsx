@@ -7,26 +7,26 @@ import { useState, useEffect } from 'react';
 import { getItemById } from '../../services/firebase';
 
 
-const ItemDetailContainer = ({greeting}) => {
+const ItemDetailContainer = ({ greeting }) => {
     const idURL = useParams().id;
 
     let [item, setItem] = useState({});
 
-/*     const getDetalle = () => {
-        let detalle = data.find((e) => e.id == idURL)
-        setItem(detalle)
-    } */
+    /*     const getDetalle = () => {
+            let detalle = data.find((e) => e.id == idURL)
+            setItem(detalle)
+        } */
 
     useEffect(() => {
         getItemById(idURL).then(response => setItem(...response));
-    },[])
+    }, [])
 
-    return(
+    return (
         <div>
             <div>
                 <h1>{greeting}</h1>
             </div>
-            <ItemDetail item={item}/>
+            <ItemDetail item={item} />
         </div>
     )
 }
