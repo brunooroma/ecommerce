@@ -13,7 +13,6 @@ const ItemListContainer = ({ greeting }) => {
 
     const [listFilter, setListFilter] = useState([]);
     const [list, setList] = useState([]);
-    const [error, setError] = useState(null);
 
     /*     const getTipo = () => {
             let listaPokemonTipo = data.filter((e) => e.type === category)
@@ -55,8 +54,6 @@ const ItemListContainer = ({ greeting }) => {
             getItemFromDBbyCategory(category).then((response) => setListFilter(response))
         }
     }, [category]);
-
-    if (error) return <p>{error}</p>
 
     return (
         <div>
