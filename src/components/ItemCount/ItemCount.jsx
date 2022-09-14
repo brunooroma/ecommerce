@@ -18,22 +18,20 @@ const ItemCount = (props) => {
         }
     }
 
-    /*     const addCart = () => {
-            (counter === props.initial) ? alert(`Se ha agregado al carrito ${counter} unidad`) : alert(`Se han agregado al carrito ${counter} unidades`);
-        } */
-
     let btn_restar;
     let btn_sumar;
+    let btn_restar_desactivar;
+    let btn_sumar_desactivar;
 
-    (counter == 1) ? btn_restar = { opacity: 0.5 } : btn_restar = { opacity: 1 };
-    (counter == props.stock) ? btn_sumar = { opacity: 0.5 } : btn_sumar = { opacity: 1 };
+    (counter === 1) ? btn_restar_desactivar = {disabled: true} : btn_restar = { opacity: 1 };
+    (counter === props.stock) ?  btn_sumar_desactivar = {disabled:true} : btn_sumar = { opacity: 1 };
 
     return (
         <div className='divContador'>
             <div className='divBoton'>
-                <Button variant='danger' className='botonContador' style={btn_restar} onClick={countDecrement}>-</Button>
+                <Button variant='danger' className='botonContador' disabled={btn_restar_desactivar} style={btn_restar} onClick={countDecrement}>-</Button>
                 <p>{counter}</p>
-                <Button variant='primary' className='botonContador' style={btn_sumar} onClick={countIncrement}>+</Button>
+                <Button variant='primary' className='botonContador' disabled={btn_sumar_desactivar} style={btn_sumar} onClick={countIncrement}>+</Button>
             </div>
             <div>
                 <Button variant='primary' className='botonContador' onClick={() => props.onAdd(counter)}>Agregar al Carrito</Button>

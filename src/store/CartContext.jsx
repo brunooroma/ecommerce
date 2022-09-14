@@ -14,7 +14,20 @@ export const CustomCartContextProvider = ({ children }) => {
 
     const addToCart = (item, quantity) => {
         if (isInCart(item)) {
-            console.log('ya tenes!')
+            alert('ya tenes!')
+            const itemActualizado = cart.map ( prod => {
+                if ( prod.id === item.id ) {
+                    const productoActualizado = {
+                         ... prod ,
+                         quantity : quantity
+                    }
+                    return productoActualizado
+                }
+                  else {
+                    return prod
+                } 
+            })
+            setCart ( itemActualizado )
         }
         else {
             let copyCart = [...cart]
