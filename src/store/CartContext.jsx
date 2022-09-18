@@ -7,6 +7,7 @@ export const cartContext = createContext();
 export const CustomCartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [orderId, setOrderId] = useState(false);
+    const [quantityCart, setQuantityCart] = useState('')
 
     const isInCart = (item) => {
         return cart.some(itemCart => itemCart.numero == item.numero)
@@ -14,20 +15,20 @@ export const CustomCartContextProvider = ({ children }) => {
 
     const addToCart = (item, quantity) => {
         if (isInCart(item)) {
-            alert('ya tenes!')
-            const itemActualizado = cart.map ( prod => {
-                if ( prod.id === item.id ) {
+            alert('Se actualizo la cantidad del item')
+            const itemActualizado = cart.map(prod => {
+                if (prod.id === item.id) {
                     const productoActualizado = {
-                         ... prod ,
-                         quantity : quantity
+                        ...prod,
+                        quantity: quantity
                     }
                     return productoActualizado
                 }
-                  else {
+                else {
                     return prod
-                } 
+                }
             })
-            setCart ( itemActualizado )
+            setCart(itemActualizado)
         }
         else {
             let copyCart = [...cart]
@@ -63,8 +64,23 @@ export const CustomCartContextProvider = ({ children }) => {
         }
     }
 
+    let totalOrden = 0;
+    cart.forEach((item) => {
+        totalOrden += item.precio * item.quantity
+    });
+
+    const totalQuantityCart = () => {
+        if (cart.length === 0) {
+
+        } else {
+            let nuevo = cart.map(e => e.quantity)
+            let total = nuevo.reduce((a, b) => a + b)
+            setQuantityCart(total)
+        }
+    }
+
     return (
-        <cartContext.Provider value={{ cart, addToCart, viewCart, removeItem, clearCart, saveProductsToFirebase, orderId, setOrderId }}>
+        <cartContext.Provider value={{ cart, addToCart, viewCart, removeItem, clearCart, saveProductsToFirebase, orderId, setOrderId, totalOrden, totalQuantityCart, quantityCart }}>
             {children}
         </cartContext.Provider>
     )

@@ -9,17 +9,12 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const Cart = () => {
 
-    const { cart, removeItem, clearCart, saveProductsToFirebase, orderId, setOrderId } = useContext(cartContext)
+    const { cart, removeItem, clearCart, saveProductsToFirebase, orderId, setOrderId, totalOrden } = useContext(cartContext)
 
     const totalPrice = (quantity, price) => {
         let total = quantity * price
         return total
     }
-
-    let totalOrden = 0;
-    cart.forEach((item) => {
-        totalOrden += item.precio * item.quantity
-    });
 
     const ordenDeCompra = {
         buyer: {

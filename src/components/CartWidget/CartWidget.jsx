@@ -5,18 +5,7 @@ import { useContext, useState, useEffect } from 'react';
 import { cartContext } from '../../store/CartContext'
 
 const CartWidget = () => {
-  const { cart } = useContext(cartContext);
-  const [quantityCart, setQuantityCart] = useState('')
-
-  const totalQuantityCart = () => {
-    if (cart.length === 0) {
-
-    } else {
-      let nuevo = cart.map(e => e.quantity)
-      let total = nuevo.reduce((a, b) => a + b)
-      setQuantityCart(total)
-    }
-  }
+  const { cart, totalQuantityCart, quantityCart } = useContext(cartContext);
 
   useEffect(() => {
     totalQuantityCart();
